@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/csv"
 	"fmt"
 	"os"
 )
@@ -20,4 +21,12 @@ func main() {
 		panic(err)
 	}
 	defer file.Close() //defer roda no final da execucao da funcao
+
+	reader := csv.NewReader(file)
+	records, err := reader.ReadAll()
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(records)
 }
