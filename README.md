@@ -25,3 +25,5 @@ The CSV file will be in a format like below, where the first column is a questio
 You can assume that quizzes will be relatively short (< 100 questions) and will have single word/number answers.
 
 At the end of the quiz the program should output the total number of questions correct and how many questions there were in total. Questions given invalid answers are considered incorrect.
+
+NOTE: CSV files may have questions with commas in them. Eg: "what 2+2, sir?",4 is a valid row in a CSV. I suggest you look into the CSV package in Go and don't try to write your own CSV parser.
