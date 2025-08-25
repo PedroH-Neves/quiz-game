@@ -25,8 +25,6 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println(records)
-
 	totalQuestions := len(records)
 	correctAnswers := 0
 
