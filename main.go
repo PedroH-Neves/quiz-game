@@ -10,9 +10,10 @@ import (
 
 func main() {
 	fileName := flag.String("filename", "problems.csv", "csv de duas colunas perguntas e respostas")
+	quizTime := flag.Int("timer", 30, "specify the quiz time")
 	flag.Parse()
 
-	timer30 := time.NewTimer(30 * time.Second)
+	timer := time.NewTimer(time.Duration(*quizTime) * time.Second)
 
 	fmt.Println("Welcome to the quiz game!!!")
 	fmt.Println("You will have 30 seconds to answer the questions")
@@ -49,7 +50,7 @@ questionLoop:
 		}()
 
 		select {
-		case <-timer30.C:
+		case <-timer.C:
 			fmt.Println("Sorry, the time is up!!")
 			break questionLoop
 		case userAnswer := <-answerCh:
