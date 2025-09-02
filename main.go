@@ -13,11 +13,14 @@ func main() {
 	quizTime := flag.Int("timer", 30, "specify the quiz time")
 	flag.Parse()
 
-	timer := time.NewTimer(time.Duration(*quizTime) * time.Second)
-
 	fmt.Println("Welcome to the quiz game!!!")
-	fmt.Println("You will have 30 seconds to answer the questions")
-	fmt.Println("The time is running")
+	fmt.Println("The default time to answer the questions is 30 seconds")
+	fmt.Println("Press ENTER to start the quiz")
+	var enter string
+	fmt.Scanln(&enter)
+	fmt.Println("Time is running")
+
+	timer := time.NewTimer(time.Duration(*quizTime) * time.Second)
 
 	file, err := os.Open(*fileName)
 	if err != nil {
